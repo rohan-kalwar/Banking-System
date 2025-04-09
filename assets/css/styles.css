@@ -1,0 +1,343 @@
+/*=============== GOOGLE FONTS ===============*/
+/* Importing Montserrat font from Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+/* Defining CSS custom properties (variables) for reusability and easy theming */
+:root {
+  /*========== Color variables using HSL for better control over color tones ==========*/
+  --first-color: hsl(208, 92%, 54%);
+  --first-color-alt: hsl(208, 88%, 50%);
+  --title-color: hsl(220, 68%, 4%);
+  --white-color: hsl(0, 0%, 100%);
+  --text-color: hsl(220, 15%, 66%);
+  --body-color: hsl(0, 0%, 100%);
+  --container-color: hsl(220, 50%, 97%);
+
+  /*========== Font and typography sizes ==========*/
+  --body-font: "Montserrat", system-ui;
+  --big-font-size: .5rem; /* Default (mobile) big text */
+  --normal-font-size: .85rem;
+  --small-font-size: .875rem;
+  --tiny-font-size: .65rem;
+
+  /*========== Font weight for hierarchy ==========*/
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semi-bold: 600;
+
+  /*========== z-index layering ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+/*========== Responsive font sizes for larger screens ==========*/
+@media screen and (min-width: 1150px) {
+  :root {
+    --big-font-size: 2rem;
+    --normal-font-size: 0.85rem;
+    --small-font-size: .875rem;
+    --tiny-font-size: .65rem;
+  }
+}
+
+/*=============== BASE ===============*/
+/* Resets and base styles for all elements */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body,
+input,
+button {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+}
+
+body {
+  background: linear-gradient(90deg, #e2e2e2, #c9d6ff); /* Smooth gradient background */
+  color: var(--text-color); /* Default text color */
+}
+
+input,
+button {
+  border: none;
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+/* Container with max width and horizontal padding */
+.container {
+  max-width: 1120px;
+  margin-inline: 1.5rem;
+}
+
+/* Grid layout with gap between elements */
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+
+/*=============== LOGIN SECTION ===============*/
+/* Main login section wrapper */
+.login {
+  position: relative;
+  height: 100vh;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Hides decorative blob image on small screens */
+.login__blob {
+  display: none;
+}
+
+/* Heading/title styling */
+.login__title {
+  font-size: var(--big-font-size);
+  color: var(--title-color);
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+/* Form input box styling */
+.login__box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: var(--container-color);
+  border-radius: 1rem;
+}
+
+/* Text input field styling */
+.login__input {
+  background: none;
+  width: 100%;
+  padding: .9rem;
+  font-weight: var(--font-semi-bold);
+  border: 3px solid transparent;
+  border-radius: 1rem;
+  z-index: 1;
+  transition: border-color .4s;
+}
+
+/* Styling for autofilled input */
+.login__input:autofill {
+  transition: background-color 6000s, color 6000s;
+}
+
+/* Label placed inside input (floating label style) */
+.login__label {
+  position: absolute;
+  left: 1.05rem;
+  font-weight: var(--font-semi-bold);
+  transition: transform .4s, font-size .4s, color .4s;
+}
+
+/* Input icon inside input box (eye icon for password) */
+.login__icon {
+  position: absolute;
+  right: 1rem;
+  font-size: 1.25rem;
+  transition: color .4s;
+}
+
+/* Password visibility toggle icon */
+.login__password {
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* Forgot password link */
+.login__forgot {
+  display: block;
+  width: max-content;
+  margin: 1rem 0 0 auto;
+  font-size: var(--small-font-size);
+  font-weight: var(--font-semi-bold);
+  color: var(--text-color);
+  transition: color .4s;
+}
+
+/* Hover effect for forgot password link */
+.login__forgot:hover {
+  color: var(--first-color);
+}
+
+/* Submit/login button styling */
+.login__button {
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
+  background-color: var(--first-color);
+  color: var(--white-color);
+  font-weight: var(--font-semi-bold);
+  padding-block: 1rem;
+  border-radius: 4rem;
+  margin-block: 1.5rem;
+  cursor: pointer;
+  transition: background-color .4s, box-shadow .4s;
+}
+
+/* Hover effect for submit button */
+.login__button:hover {
+  background-color: var(--first-color-alt);
+  box-shadow: 0 8px 15px hsla(208, 92%, 32%, .3);
+}
+
+/* Text switch between login and register forms */
+.login__switch {
+  text-align: center;
+  font-size: var(--small-font-size);
+}
+
+.login__switch button {
+  background: none;
+  color: var(--first-color);
+  font-size: var(--small-font-size);
+  font-weight: var(--font-semi-bold);
+  cursor: pointer;
+  transition: color .4s;
+}
+
+.login__switch button:hover {
+  color: var(--first-color-alt);
+}
+
+/* Form containers for login and register */
+.login__access, 
+.login__register {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  transition: transform .4s, opacity .4s .1s;
+}
+
+/* Hide register form by default */
+.login__register {
+  transform: translateX(15rem);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Floating label moves up on input focus */
+.login__input:focus ~ .login__label {
+  transform: translateY(-12px);
+  font-size: var(--tiny-font-size);
+}
+
+/* Expand padding when input is focused */
+.login__input:focus {
+  padding-block: 2rem 1rem;
+}
+
+/* Keep label on top when input has value but is not focused */
+.login__input:not(:placeholder-shown).login__input:not(:focus) ~ .login__label {
+  transform: translateY(-12px);
+  font-size: var(--tiny-font-size);
+}
+
+.login__input:not(:placeholder-shown).login__input:not(:focus) {
+  padding-block: 2rem 1rem;
+}
+
+/* Border and icon color on focus */
+.login__input:focus {
+  border-color: var(--first-color);
+}
+
+.login__input:focus ~ .login__label,
+.login__input:focus ~ .login__icon {
+  color: var(--first-color);
+}
+
+/* Toggle between login and register forms */
+.active .login__access {
+  transform: translateX(15rem);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.active .login__register {
+  transform: translateX(0);
+  opacity: 1;
+  pointer-events: initial;
+}
+
+/*=============== BREAKPOINTS ===============*/
+/* Small screens - reduce horizontal padding */
+@media screen and (max-width: 320px) {
+  .container {
+    margin-inline: 1rem;
+  }
+}
+
+/* Medium devices - center login form */
+@media screen and (min-width: 540px) {
+  .login__area {
+    width: 380px;
+    margin-inline: auto;
+  }
+}
+
+/* Extra small height devices - adjust login height */
+@media screen and (min-width: 350px) and (max-height: 600px) {
+  .login {
+    height: 760px;
+  }
+}
+
+/* Large devices - full layout and responsive styles */
+@media screen and (min-width: 1150px) {
+  .container {
+    margin-inline: auto;
+  }
+
+  .login__area {
+    width: 460px;
+    margin: initial;
+  }
+
+  .login__access, 
+  .login__register {
+    width: 600px;
+  }
+
+  .login__title {
+    text-align: initial;
+    margin-bottom: 3rem;
+  }
+
+  .login__button {
+    margin-bottom: 3rem;
+  }
+
+  .login__group {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .login__blob {
+    display: block;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .login__img {
+    transform: translate(0rem, 0rem);
+  }
+}

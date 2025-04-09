@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<!-- My CSS -->
+	<link rel="stylesheet" href="dashboard.css">
+
+	<title>Dashboard</title>
+</head>
+<body>
+
+
+	<!-- SIDEBAR -->
+	<section id="sidebar">
+		<a href="#" class="brand">
+			<i class='bx bxs-user'></i>
+			<span class="text">Welcome User</span>
+		</a>
+		<ul class="side-menu top">
+			<li class="active">
+				<a href="#">
+					<i class='bx bxs-dashboard' ></i>
+					<span class="text">Dashboard</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<i class='bx bxs-copy' ></i>
+					<span class="text">Bank Statement</span>
+				</a>
+			</li>
+			
+			<li>
+				<a href="#">
+					<i class='bx bxs-send' ></i>
+					<span class="text">Send Money</span>
+				</a>
+			</li>
+			
+			<li>
+				<a href="#">
+					<i class='bx bxs-calculator' ></i>
+					<span class="text">Withdraw</span>
+				</a>
+			</li>
+			
+			<li>
+				<a href="#">
+					<i class='bx bxs-bank' ></i>
+					<span class="text">Account Balance</span>
+				</a>
+			</li>
+
+			<li>
+				<a href="#">
+					<i class='bx bxs-cog' ></i>
+					<span class="text">Settings</span>
+				</a>
+			</li>
+			
+			<li>
+				<a href="#" class="logout">
+					<i class='bx bxs-log-out' ></i>
+					<span class="text">Logout</span>
+				</a>
+			</li>
+	</section>
+	<!-- SIDEBAR -->
+	
+
+	
+	<!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<form action="#">
+				<!-- Do not remove the form section otherwise the theme mode toggle button will shift to left most corner -->
+			</form>
+			<input type="checkbox" id="switch-mode" hidden>
+			<label for="switch-mode" class="switch-mode"></label>
+			<a href="#" class="profile">
+				<img src=""> <!-- Add your profile picture here -->
+			</a>
+		</nav>
+		<!-- NAVBAR -->
+
+		<!-- MAIN -->
+		<main>
+			<div class="head-title">
+				<div class="left">
+					<h1>Dashboard</h1>
+				</div>
+			</div>
+
+			<ul class="box-info">
+				<li>
+					<i class='bx bxs-send' ></i>
+					<span class="text">
+						<p>Send Money</p>
+					</span>
+				</li>
+				<li>
+					<i class='bx bxs-calculator' ></i>
+					<span class="text">
+						<p>Withdraw</p>
+					</span>
+				</li>
+				<li>
+					<i class='bx bxs-wallet' ></i>
+					<span class="text">
+						<p>Balance</p>
+					</span>
+				</li>
+			</ul>
+		</main>
+		<!-- MAIN -->
+	</section>
+	<!-- CONTENT -->
+	
+
+	<script src="dashboard.js"></script>
+</body>
+</html>
